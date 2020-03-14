@@ -25,6 +25,8 @@ Il faut que je rajoute plus de fonctionnalités :
 - filtre liens (http / https / sans rien / filtrage contournement (genre les espaces ou autre)
 - captcha
 - attribuer un role
+- gestion des erreurs 
+- 
 
 ### fun:
 
