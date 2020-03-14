@@ -22,7 +22,7 @@ Il faut que je rajoute plus de fonctionnalités :
 - déplacer un channel sous une category // optionnel
 - logs
 - antispam
-- filtre liens (http / https / sans rien / filtrage contournement (genre les espaces ou autre)
+- filtre liens (http / https / sans rien / filtrage contournement (genre les espaces ou autre))
 - captcha
 - attribuer un role
 
