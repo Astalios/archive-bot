@@ -59,7 +59,7 @@ client.on('message', msg => {
         let phraseRename = '';
         cmd.forEach((element, i, array) =>{
           let j = i + 1;
-          while ((array.lenght > j) && !msg.mentions.users.first()){
+          while (array.lenght > j){
             phraseRename += array[j] + " ";
             j++;
           }
