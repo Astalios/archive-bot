@@ -6,6 +6,8 @@ Ce bot est a usage privé et personnel pour le moment, parce que le code est dé
 
 ### todo:
 
+UNE BASE DE DONNEES
+
 Il faut que je rajoute plus de fonctionnalités :
 
 ### modération + utilities
@@ -22,11 +24,10 @@ Il faut que je rajoute plus de fonctionnalités :
 - déplacer un channel sous une category // optionnel
 - logs
 - antispam
-- filtre liens (http / https / sans rien / filtrage contournement (genre les espaces ou autre))
+- filtre liens (http / https / sans rien / filtrage contournement (genre les espaces ou autre), système de REGEX)
 - captcha
 - attribuer un role
-- gestion des erreurs 
-- 
+- gestion des erreurs
 
 ### fun:
 
@@ -39,5 +40,5 @@ Il faut que je rajoute plus de fonctionnalités :
 
 - kick, multikick, reason
 - ban, multiban, reason
-- système de rename
+- système de rename -- reworking, je veux inclure les espaces dans le rename dans la limite des 32 char
 - créations channels de logs du bot + catégorie liée
