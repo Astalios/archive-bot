@@ -67,7 +67,7 @@ client.on('message', msg => {
       if (msg.mentions.users.size == 1 ){
         msg.guild.member(msg.mentions.users.first()).setNickname(cmd[2]);
       } else if (msg.mentions.users.size == 0 ) {
-        msg.guild.member(msg.author).setNickname(cmd[2]);
+        msg.guild.member(msg.author).setNickname(cmd[1]);
       } else {
         msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
       }
