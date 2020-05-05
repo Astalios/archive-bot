@@ -56,18 +56,18 @@ client.on('message', msg => {
         break;
       // le rename
       case "rename":
-        let phraseRename = '';
+/*    let phraseRename = '';
         cmd.forEach((element, i, array) =>{
           let j = i + 1;
           while (array.lenght > j){
             phraseRename += array[j] + " ";
             j++;
           }
-        })
+        })*/
       if (msg.mentions.users.size == 1 ){
-        msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
+        msg.guild.member(msg.mentions.users.first()).setNickname(cmd[2]);
       } else if (msg.mentions.users.size == 0 ) {
-        msg.guild.member(msg.author).setNickname(phraseRename);
+        msg.guild.member(msg.author).setNickname(cmd[2]);
       } else {
         msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
       }
