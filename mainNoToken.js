@@ -59,9 +59,16 @@ client.on('message', msg => {
       } else if (msg.mentions.users.size == 0 ) {
         msg.guild.member(msg.author).setNickname(cmd[1]);
       } else {
-        msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`")
+        msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
       }
       break;
+      case "cbt":
+      const msgCBT = "cock and ball torture for you ";
+      if(msg.mentions.users.size != 1){
+        msg.channel.send("Syntax Error, use this : `a!cbt [@user]`");
+      } else {
+        msg.channel.send(msgCBT + msg.mentions.users.first());
+      }
       default:
         msg.reply("Syntax Error, use is : `a!<command> [args] [...]`");
     }
