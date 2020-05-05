@@ -25,6 +25,7 @@ client.on('message', msg => {
       case "ping":
         msg.channel.send("Pong! `" + (Date.now() - msg.createdTimestamp) + " ms`");
         break;
+      // le kick ban
       case "kick":
       case "ban":
         cmd.forEach((element, i, array) => {
@@ -53,15 +54,25 @@ client.on('message', msg => {
           }
         });
         break;
+      // le rename
       case "rename":
+        let phraseRename = '';
+        cmd.forEach((element, i, array) =>{
+          let j = i + 1;
+          while ((array.lenght > j) && !msg.mentions.users.first()){
+            phraseRename += array[j] + " ";
+            j++;
+          }
+        })
       if (msg.mentions.users.size == 1 ){
-        msg.guild.member(msg.mentions.users.first()).setNickname(cmd[2]);
+        msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
       } else if (msg.mentions.users.size == 0 ) {
-        msg.guild.member(msg.author).setNickname(cmd[1]);
+        msg.guild.member(msg.author).setNickname(phraseRename);
       } else {
         msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
       }
       break;
+      // dedicace kouine pour cette commande
       case "cbt":
       const msgCBT = "cock and ball torture for you ";
       if(msg.mentions.users.size != 1){
