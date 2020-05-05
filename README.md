@@ -7,7 +7,7 @@ Ce bot est a usage privé et personnel pour le moment, parce que le code est dé
 ### todo:
 
 UNE BASE DE DONNEES
-
+UNE DOCUMENTATION
 Il faut que je rajoute plus de fonctionnalités :
 
 ### modération + utilities
