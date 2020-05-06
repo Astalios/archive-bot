@@ -64,7 +64,7 @@ client.on('message', msg => {
           isMention = 1;
         }
         for (isMention; isMention < cmd.length; isMention++)
-          phraseRename += cmd[i] + " ";
+          phraseRename += cmd[isMention] + " ";
         if (msg.mentions.users.size == 1 ){
           msg.guild.member(msg.mentions.users.first()).setNickname(isMention);
         } else if (msg.mentions.users.size == 0 ) {
