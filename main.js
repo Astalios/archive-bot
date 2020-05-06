@@ -20,9 +20,9 @@ client.on('guildCreate', guild => {
 
 client.on('message', msg => {
   if (msg.content.startsWith(config.prefix)) {
-    const msgNoPrefix = msg.content.substr(2,msg.content.length);
+    const msgNoPrefix = msg.content.substr(config.prefix.length,msg.content.length);
     const cmd = msgNoPrefix.split(/ +/);
-
+    //ping
     switch (cmd[0]) {
       case "ping":
         msg.channel.send("Pong! `" + (Date.now() - msg.createdTimestamp) + " ms`");
@@ -62,7 +62,7 @@ client.on('message', msg => {
       case "rename":
         let phraseRename = "";
         let isMention = 2;
-        if (msg.mentions.users.size == 0){
+        if (!msg.mentions.users.size){
           isMention = 1;
         }
         for (isMention; isMention < cmd.length; isMention++)
@@ -70,7 +70,7 @@ client.on('message', msg => {
         if (msg.mentions.users.size == 1 ){
           msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
           msg.channel.send("Done.");
-        } else if (msg.mentions.users.size == 0 ) {
+        } else if (!msg.mentions.users.size) {
           msg.guild.member(msg.author).setNickname(phraseRename);
           msg.channel.send("Done.");
         } else {
@@ -90,12 +90,21 @@ client.on('message', msg => {
       case "about":
         if (msg.mentions.users.size == 1){
           msg.channel.send(`His username: ${msg.mentions.users.first().username}\nHis ID: ${msg.mentions.users.first().id}`);
-        } else if (msg.mentions.users.size == 0) {
+        } else if (!msg.mentions.users.size) {
           msg.channel.send(`Your username: ${msg.author.username}\nYour ID: ${msg.author.id}`);
         } else {
           msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
         }
         break;
+      // avatar
+      case "avatar":
+      if(!msg.mentions.users.size){
+        	msg.channel.send(`Here is your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
+      } else {
+        msg.channel.send(`${msg.mentions.users.first().username} avatar: <${msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true })}>`);
+      }
+      break;
+
       default:
         msg.reply("Syntax Error, use is : `a!<command> [args] [...]`");
     }
