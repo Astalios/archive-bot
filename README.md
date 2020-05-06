@@ -1,8 +1,14 @@
 # archive-bot
 
+*Je suis un bot qui vient de la planète archivia, j'ai été créé par astalios et à l'origine je n'avais que
+pour but de servir que l'amusement de ce dernier et de ses petits camarades mais, il s'est repris en main
+pour me donner des ambitions de modération et de fun largement plus poussée que sa vision primaire que je
+pouvais lui donner, mais je lui en veux pas, j'ai une conscience maintenant.*
+
 ## Le bot :
 
-Ce bot est a usage privé et personnel pour le moment, parce que le code est dégueulasse.
+Ce bot est a usage privé et personnel pour le moment, parce que le code est mauvais.
+Il me sert principalement à apprendre le javascript, le node, et les modules autour de ce magnifique langage.
 
 ### todo:
 

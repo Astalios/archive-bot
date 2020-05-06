@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const fs = require('fs');
+const config = JSON.parse(fs.readFileSync('config.json'));
 
-client.on('ready', () => {
+client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
@@ -17,7 +19,7 @@ client.on('guildCreate', guild => {
 });
 
 client.on('message', msg => {
-  if (msg.content.startsWith("a!")) {
+  if (msg.content.startsWith(config.prefix)) {
     const msgNoPrefix = msg.content.substr(2,msg.content.length);
     const cmd = msgNoPrefix.split(" ");
 
@@ -56,35 +58,34 @@ client.on('message', msg => {
         break;
       // le rename
       case "rename":
-/*    let phraseRename = '';
-        cmd.forEach((element, i, array) =>{
-          let j = i + 1;
-          while (array.lenght > j){
-            phraseRename += array[j] + " ";
-            j++;
-          }
-        })*/
-      if (msg.mentions.users.size == 1 ){
-        msg.guild.member(msg.mentions.users.first()).setNickname(cmd[2]);
-      } else if (msg.mentions.users.size == 0 ) {
-        msg.guild.member(msg.author).setNickname(cmd[1]);
-      } else {
-        msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
-      }
-      break;
+        let phraseRename = "";
+        let isMention = 2;
+        if (msg.mentions.user.size == 0){
+          isMention = 1;
+        }
+        for (isMention; i < cmd.length; i++)
+          phraseRename += cmd[i] + " ";
+        if (msg.mentions.users.size == 1 ){
+          msg.guild.member(msg.mentions.users.first()).setNickname(isMention);
+        } else if (msg.mentions.users.size == 0 ) {
+          msg.guild.member(msg.author).setNickname(isMention);
+        } else {
+          msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
+        }
+        break;
       // dedicace kouine pour cette commande
       case "cbt":
-      const msgCBT = "cock and ball torture for you ";
-      if(msg.mentions.users.size != 1){
-        msg.channel.send("Syntax Error, use this : `a!cbt [@user]`");
-      } else {
-        msg.channel.send(msgCBT + '<@'+msg.mentions.users.first()+'>' );
-      }
-      break;
+        const msgCBT = "cock and ball torture for you ";
+        if(msg.mentions.users.size != 1){
+          msg.channel.send("Syntax Error, use this : `a!cbt [@user]`");
+        } else {
+          msg.channel.send(msgCBT + '<@'+msg.mentions.users.first()+'>' );
+        }
+        break;
       default:
         msg.reply("Syntax Error, use is : `a!<command> [args] [...]`");
     }
 }
 });
 
-client.login('yourtoken');
+client.login(config.token);
