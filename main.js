@@ -21,7 +21,7 @@ client.on('guildCreate', guild => {
 client.on('message', msg => {
   if (msg.content.startsWith(config.prefix)) {
     const msgNoPrefix = msg.content.substr(2,msg.content.length);
-    const cmd = msgNoPrefix.split(" ");
+    const cmd = msgNoPrefix.split(/ +/);
 
     switch (cmd[0]) {
       case "ping":
