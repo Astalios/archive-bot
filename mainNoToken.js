@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const config = JSON.parse(fs.readFileSync('config.json'));
+const config = JSON.parse(fs.readFileSync("misc\\config.json"));
 
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
