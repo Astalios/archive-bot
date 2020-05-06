@@ -44,8 +44,10 @@ client.on('message', msg => {
                       msg.mentions.users.forEach(usr => {
                         if (cmd[0] == "ban"){
                           msg.guild.member(usr).ban({ reason: str });
+                          msg.channel.send("Done.");
                         } else {
                           msg.guild.member(usr).kick({ reason: str });
+                          msg.channel.send("Done.");
                         }
                       });
                       break;
@@ -67,8 +69,10 @@ client.on('message', msg => {
           phraseRename += cmd[isMention] + " ";
         if (msg.mentions.users.size == 1 ){
           msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
+          msg.channel.send("Done.");
         } else if (msg.mentions.users.size == 0 ) {
           msg.guild.member(msg.author).setNickname(phraseRename);
+          msg.channel.send("Done.");
         } else {
           msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
         }
