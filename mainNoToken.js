@@ -60,7 +60,7 @@ client.on('message', msg => {
       case "rename":
         let phraseRename = "";
         let isMention = 2;
-        if (msg.mentions.user.size == 0){
+        if (msg.mentions.users.size == 0){
           isMention = 1;
         }
         for (isMention; i < cmd.length; i++)
