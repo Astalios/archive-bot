@@ -82,6 +82,16 @@ client.on('message', msg => {
           msg.channel.send(msgCBT + '<@'+msg.mentions.users.first()+'>' );
         }
         break;
+      // ABOUT ME, ABOUT YOU
+      case "about":
+        if (msg.mentions.users.size == 1){
+          msg.channel.send(`His username: ${msg.mentions.users.first().username}\nHis ID: ${msg.mentions.users.first().id}`);
+        } else if (msg.mentions.users.size == 0) {
+          msg.channel.send(`Your username: ${msg.author.username}\nYour ID: ${msg.author.id}`);
+        } else {
+          msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
+        }
+        break;
       default:
         msg.reply("Syntax Error, use is : `a!<command> [args] [...]`");
     }
