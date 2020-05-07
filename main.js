@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 
 // setting up the client
 const client = new Discord.Client();
-const client.admin = new Discord.Collection();
+client.admin = new Discord.Collection();
 
 //setting up the commands
 const adminFiles = fs.readdirSync('./admin').filter(file => file.endsWith('.js'));
