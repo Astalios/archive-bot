@@ -21,6 +21,6 @@ module.exports = {
       	timestamp: new Date(),
       };
     }
-    channel.send({ embed: avatarEmbed });
+    msg.channel.send({ embed: avatarEmbed });
 	},
 };
