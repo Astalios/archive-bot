@@ -24,11 +24,11 @@ module.exports = {
   		{
   			name: ' field 1.1 bien voyons monsieur l_arbitre',
   			value: "oui c'est quoi ça ",
-  			inline: false,
   		},
       {
   			name: 'field 2',
   			value: 'lorem ipsum ooc',
+        inline: false,
   		},
   		{
   			name: 'field 2.2',
