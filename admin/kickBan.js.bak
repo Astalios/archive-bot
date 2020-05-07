@@ -1,3 +1,5 @@
+
+
 cmd.forEach((element, i, array) => {
   if (element.startsWith('-')) {
       const action = element.split('')[1];

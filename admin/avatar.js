@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'avtar',
+	name: 'avatar',
 	description: 'Displaying someone avatar, you can just call the command without mention to display your avatar.',
 	execute(msg, args) {
     if(!msg.mentions.users.size){
