@@ -1,7 +1,20 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+// Required modules
 const fs = require('fs');
+const Discord = require('discord.js');
+
+// setting up the client
+const client = new Discord.Client();
+const client.admin = new Discord.Collection();
+
+//setting up the commands
+const adminFiles = fs.readdirSync('./admin').filter(file => file.endsWith('.js'));
 const config = JSON.parse(fs.readFileSync('misc/config.json'));
+
+//preparing the admin commands
+for (const file of adminFiles) {
+	const admCmd = require(`./admin/${file}`);
+	client.commands.set(admCmd.name, admCmd);
+}
 
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -28,7 +41,7 @@ client.on('message', msg => {
       case "ping":
         msg.channel.send("Pong! `" + (Date.now() - msg.createdTimestamp) + " ms`");
         break;
-      // le kick ban
+      //kick ban
       case "kick":
       case "ban":
         args.forEach((element, i, array) => {
@@ -59,7 +72,7 @@ client.on('message', msg => {
           }
         });
         break;
-      // le rename
+      //rename
       case "rename":
         let phraseRename = "";
         let isMention = 1;
@@ -78,7 +91,7 @@ client.on('message', msg => {
           msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
         }
         break;
-      // dedicace kouine pour cette commande
+      //ty kouine for this command
       case "cbt":
         const msgCBT = "cock and ball torture for you ";
         if(msg.mentions.users.size != 1){
@@ -99,13 +112,13 @@ client.on('message', msg => {
         break;
       // avatar
       case "avatar":
-      if(!msg.mentions.users.size){
+      client.commands.get('avatar').execute(msg, args);
+    /*  if(!msg.mentions.users.size){
         	msg.channel.send(`Here is your avatar: <${msg.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
       } else {
         msg.channel.send(`${msg.mentions.users.first().username} avatar: <${msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true })}>`);
-      }
+      } */
       break;
-
       default:
         msg.channel.send("Syntax Error, use is : `a!<command> [args] [...]`");
     }
