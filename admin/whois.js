@@ -19,21 +19,22 @@ module.exports = {
   	fields: [
   		{
   			name: 'field 1',
-  			value: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        value: "ouais ouais le lorem",
   		},
   		{
   			name: ' field 1.1 bien voyons monsieur l_arbitre',
   			value: "oui c'est quoi ça ",
+        inline: true,
   		},
       {
   			name: 'field 2',
   			value: 'lorem ipsum ooc',
-        inline: false,
+        inline: true,
   		},
   		{
   			name: 'field 2.2',
-  			value: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  			inline: false,
+        value: 'ouais ouais',
+        inline: false,
   		},
   		{
   			name: 'Inline field 1',
@@ -59,6 +60,7 @@ module.exports = {
   		icon_url: 'https://i.imgur.com/wSTFkRM.png',
       timestamp: new Date(),
   	},
+    timestamp: new Date(),
   };
   msg.channel.send({ embed: exampleEmbed });
 
