@@ -62,9 +62,9 @@ client.on('message', msg => {
       // le rename
       case "rename":
         let phraseRename = "";
-        let isMention = 2;
+        let isMention = 1;
         if (!msg.mentions.users.size){
-          isMention = 1;
+          isMention = 0;
         }
         for (isMention; isMention < args.length; isMention++)
           phraseRename += args[isMention] + " ";
@@ -100,7 +100,7 @@ client.on('message', msg => {
       // avatar
       case "avatar":
       if(!msg.mentions.users.size){
-        	msg.channel.send(`Here is your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
+        	msg.channel.send(`Here is your avatar: <${msg.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
       } else {
         msg.channel.send(`${msg.mentions.users.first().username} avatar: <${msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true })}>`);
       }
