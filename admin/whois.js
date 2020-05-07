@@ -4,7 +4,7 @@ module.exports = {
   execute(msg, args){
     msg.channel.send("test embed template \n");
     const exampleEmbed = {
-	color: RANDOM,
+	color: 'RANDOM',
 	title: 'source bot',
 	url: 'https://github.com/astalios/archive-bot',
 	author: {
