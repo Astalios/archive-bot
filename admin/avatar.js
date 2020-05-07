@@ -7,7 +7,7 @@ module.exports = {
       	color: 0x0099ff,
       	title: `Here is your avatar:`,
       	image: {
-      		url: `${msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true })}`,
+      		url: `${msg.author.displayAvatarURL({ format: "png", dynamic: true })}`,
       	},
       	timestamp: new Date(),
       };
