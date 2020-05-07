@@ -20,17 +20,18 @@ client.on('guildCreate', guild => {
 
 client.on('message', msg => {
   if (msg.content.startsWith(config.prefix)) {
-    const msgNoPrefix = msg.content.substr(config.prefix.length,msg.content.length);
-    const cmd = msgNoPrefix.split(/ +/);
+
+    const args = msg.content.substr(config.prefix.length,msg.content.length).split(/ +/);
+    const cmd = args.shift().toLowerCase();
     //ping
-    switch (cmd[0]) {
+    switch (cmd) {
       case "ping":
         msg.channel.send("Pong! `" + (Date.now() - msg.createdTimestamp) + " ms`");
         break;
       // le kick ban
       case "kick":
       case "ban":
-        cmd.forEach((element, i, array) => {
+        args.forEach((element, i, array) => {
           if (element.startsWith('-')) {
               const action = element.split('')[1];
               switch (action) {
@@ -42,7 +43,7 @@ client.on('message', msg => {
                           j++;
                       }
                       msg.mentions.users.forEach(usr => {
-                        if (cmd[0] == "ban"){
+                        if (cmd == "ban"){
                           msg.guild.member(usr).ban({ reason: str });
                           msg.channel.send("Done.");
                         } else {
@@ -65,8 +66,8 @@ client.on('message', msg => {
         if (!msg.mentions.users.size){
           isMention = 1;
         }
-        for (isMention; isMention < cmd.length; isMention++)
-          phraseRename += cmd[isMention] + " ";
+        for (isMention; isMention < args.length; isMention++)
+          phraseRename += args[isMention] + " ";
         if (msg.mentions.users.size == 1 ){
           msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
           msg.channel.send("Done.");
