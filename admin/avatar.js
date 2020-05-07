@@ -11,6 +11,7 @@ module.exports = {
       	},
       	timestamp: new Date(),
       };
+      msg.channel.send({ embed: avatarEmbed });
      } else {
       const avatarEmbed = {
       	color: 0x0099ff,
@@ -20,7 +21,7 @@ module.exports = {
       	},
       	timestamp: new Date(),
       };
+      msg.channel.send({ embed: avatarEmbed });
     }
-    msg.channel.send({ embed: avatarEmbed });
 	},
 };
