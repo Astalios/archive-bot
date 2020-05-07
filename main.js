@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 
 // setting up the client
 const client = new Discord.Client();
-client.admin = new Discord.Collection();
+client.adminCommands = new Discord.Collection();
 
 //setting up the commands
 const adminFiles = fs.readdirSync('./admin').filter(file => file.endsWith('.js'));
@@ -13,7 +13,7 @@ const config = JSON.parse(fs.readFileSync('misc/config.json'));
 //preparing the admin commands
 for (const file of adminFiles) {
 	const admCmd = require(`./admin/${file}`);
-	client.commands.set(admCmd.name, admCmd);
+	client.adminCommands.set(admCmd.name, admCmd);
 }
 
 client.once('ready', () => {
