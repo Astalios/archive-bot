@@ -2,26 +2,23 @@ module.exports = {
 	name: 'avatar',
 	description: 'Displaying someone avatar, you can just call the command without mention to display your avatar.',
 	execute(msg, args) {
+    let avatarTitle = "";
+    let avatarURL = "";
     if(!msg.mentions.users.size){
-      const avatarEmbed = {
-      	color: 0x0099ff,
-      	title: `Here is your avatar:`,
-      	image: {
-      		url: `${msg.author.displayAvatarURL({ format: "png", dynamic: true })}`,
-      	},
-      	timestamp: new Date(),
-      };
-      msg.channel.send({ embed: avatarEmbed });
-     } else {
-      const avatarEmbed = {
-      	color: 0x0099ff,
-      	title: `${msg.mentions.users.first().username} avatar:`,
-      	image: {
-      		url: `${msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true })}`,
-      	},
-      	timestamp: new Date(),
-      };
-      msg.channel.send({ embed: avatarEmbed });
+      avatarTitle = `Here is your avatar:`;
+      avatarURL = `${msg.author.displayAvatarURL({ format: "png", dynamic: true })}`;
+    } else {
+    	avatarTitle = `${msg.mentions.users.first().username} avatar`;
+    	avatarURL = `${msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true })}`;
     }
+    const avatarEmbed = {
+      color: 0x0099ff,
+      title: avatarTitle,
+      image: {
+        url: avatarURL,
+      },
+      timestamp: new Date(),
+    };
+    msg.channel.send({ embed: avatarEmbed });
 	},
 };

@@ -18,5 +18,5 @@ module.exports = {
     } else {
       msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
     }
-  }
-}
+  },
+};

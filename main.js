@@ -101,24 +101,13 @@ client.on('message', msg => {
         }
         break;
       // ABOUT ME, ABOUT YOU
-      case "about":
-        if (msg.mentions.users.size == 1){
-          msg.channel.send(`His username: ${msg.mentions.users.first().username}\nHis ID: ${msg.mentions.users.first().id}`);
-        } else if (!msg.mentions.users.size) {
-          msg.channel.send(`Your username: ${msg.author.username}\nYour ID: ${msg.author.id}`);
-        } else {
-          msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
-        }
+      case "whois":
+        client.adminCommands.get('whois').execute(msg, args);
         break;
       // avatar
       case "avatar":
-      client.adminCommands.get('avatar').execute(msg, args);
-    /*  if(!msg.mentions.users.size){
-        	msg.channel.send(`Here is your avatar: <${msg.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
-      } else {
-        msg.channel.send(`${msg.mentions.users.first().username} avatar: <${msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true })}>`);
-      } */
-      break;
+        client.adminCommands.get('avatar').execute(msg, args);
+        break;
       default:
         msg.channel.send("Syntax Error, use is : `a!<command> [args] [...]`");
     }
