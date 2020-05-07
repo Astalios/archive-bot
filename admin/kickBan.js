@@ -20,7 +20,7 @@ cmd.forEach((element, i, array) => {
               });
               break;
           default:
-              msg.reply("error.");
+              msg.channel.send("error.");
               break;
         }
   }

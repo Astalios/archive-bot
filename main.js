@@ -53,7 +53,7 @@ client.on('message', msg => {
                       });
                       break;
                   default:
-                      msg.reply("error.");
+                      msg.channel.send("error.");
                       break;
                 }
           }
@@ -107,7 +107,7 @@ client.on('message', msg => {
       break;
 
       default:
-        msg.reply("Syntax Error, use is : `a!<command> [args] [...]`");
+        msg.channel.send("Syntax Error, use is : `a!<command> [args] [...]`");
     }
 }
 });
