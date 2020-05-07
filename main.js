@@ -112,7 +112,7 @@ client.on('message', msg => {
         break;
       // avatar
       case "avatar":
-      client.commands.get('avatar').execute(msg, args);
+      client.adminCommands.get('avatar').execute(msg, args);
     /*  if(!msg.mentions.users.size){
         	msg.channel.send(`Here is your avatar: <${msg.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
       } else {
