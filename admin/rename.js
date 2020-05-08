@@ -7,8 +7,8 @@ module.exports = {
     if (!msg.mentions.users.size){
       isMention = 1;
     }
-    for (isMention; isMention < args.length; isMention++)
-      phraseRename += args[isMention] + " ";
+    for (isMention; isMention < msg.length; isMention++)
+      phraseRename += msg[isMention] + " ";
     if (msg.mentions.users.size == 1 ){
       msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
       msg.channel.send("Done.");
