@@ -49,9 +49,9 @@ client.on('message', msg => {
       //rename
       case "rename":
         let phraseRename = "";
-        let isMention = 2;
+        let isMention = 1;
         if (!msg.mentions.users.size){
-          isMention = 1;
+          isMention = 0;
         }
         for (isMention; isMention < cmd.length; isMention++)
           phraseRename += cmd[isMention] + " ";
