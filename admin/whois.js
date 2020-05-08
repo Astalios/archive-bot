@@ -4,6 +4,7 @@ module.exports = {
   execute(msg, args){
 
     // user related data
+    let whoamiUserNickname;
     let whoamiUserMention;
     let whoamiUserTag;
     let whoamiUserID;
@@ -26,18 +27,18 @@ module.exports = {
     }
 
 //    whoamiUserJoinedDate = msg.guild.member(whoamiUserMention).joinedTimestamp;
-    whoamiUserCreationDate = `${whoamiUserMention.createdAt}` ;
+    whoamiUserNickname = `${whoamiUserMention.nickname}`;
+    whoamiUserCreationDate = `${whoamiUserMention.createdAt}`;
     whoamiUserAvatar = `${whoamiUserMention.displayAvatarURL({ format: "png", dynamic: true })}`;
     whoamiUserTag = `${whoamiUserMention.tag}`;
     whoamiUserID = `${whoamiUserMention.id}`;
 
     const exampleEmbed = {
   	color: 'RANDOM',
-  	title: `${whoamiUserMention}`,
+  	title: `<@${whoamiUserMention}>`,
   	author: {
-  		name: "USER :" + whoamiUserTag,
+  		name: "USER : " + whoamiUserNickname,
   		icon_url: whoamiUserAvatar,
-  		url: '',
   	},
   	thumbnail: {
   		url: whoamiUserAvatar,
@@ -79,8 +80,8 @@ module.exports = {
   		},
   	],
   	footer: {
-  		text: 'whoami - archive-bot',
-  		icon_url: 'https://github.com/astalios/archive-bot',
+      text: 'whoami - archive-bot' + whoamiUserTag,
+  		url: 'https://github.com/astalios/archive-bot',
       timestamp: new Date(),
   	},
     timestamp: new Date(),
