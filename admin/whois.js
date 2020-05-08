@@ -26,20 +26,19 @@ module.exports = {
     }
 
 //    whoamiUserJoinedDate = msg.guild.member(whoamiUserMention).joinedTimestamp;
-    whoamiUserCreationDate = whoamiUserMention.createdTimestamp ;
-    whoamiUserAvatar = whoamiUserMention.displayAvatarURL({ format: "png", dynamic: true });
-    whoamiUserTag = whoamiUserMention.tag;
-    whoamiUserID = whoamiUserMention.id;
+    whoamiUserCreationDate = `${whoamiUserMention.createdTimestamp}` ;
+    whoamiUserAvatar = `${whoamiUserMention.displayAvatarURL({ format: "png", dynamic: true })}`;
+    whoamiUserTag = `${whoamiUserMention.tag}`;
+    whoamiUserID = `${whoamiUserMention.id}`;
 
     const exampleEmbed = {
   	color: 'RANDOM',
-  	title: whoamiUserMention,
+  	title: `${whoamiUserMention}`,
   	author: {
   		name: "USER :" + whoamiUserTag,
   		icon_url: whoamiUserAvatar,
   		url: '',
   	},
-  	description: 'La Description',
   	thumbnail: {
   		url: whoamiUserAvatar,
   	},
