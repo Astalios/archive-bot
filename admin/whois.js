@@ -27,7 +27,7 @@ module.exports = {
     }
 
 //    whoamiUserJoinedDate = msg.guild.member(whoamiUserMention).joinedTimestamp;
-    whoamiUserNickname = `${whoamiUserMention.nickname}`;
+    whoamiUserName = `${whoamiUserMention.username}`;
     whoamiUserCreationDate = `${whoamiUserMention.createdAt}`;
     whoamiUserAvatar = `${whoamiUserMention.displayAvatarURL({ format: "png", dynamic: true })}`;
     whoamiUserTag = `${whoamiUserMention.tag}`;
@@ -36,7 +36,7 @@ module.exports = {
     const exampleEmbed = {
   	color: 'RANDOM',
   	author: {
-  		name: "USER : " + whoamiUserNickname,
+  		name: "USER : " + whoamiUserName,
   		icon_url: whoamiUserAvatar,
   	},
     description: `${whoamiUserMention}`,
@@ -80,7 +80,7 @@ module.exports = {
   		},
   	],
   	footer: {
-      text: 'whoami - archive-bot' + whoamiUserTag,
+      text: 'whoami - archive-bot - ' + whoamiUserTag,
   		url: 'https://github.com/astalios/archive-bot',
       timestamp: new Date(),
   	},
