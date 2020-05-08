@@ -35,7 +35,6 @@ module.exports = {
 
     const exampleEmbed = {
   	color: 'RANDOM',
-  	title: `<@${whoamiUserID}>`,
   	author: {
   		name: "USER : " + whoamiUserNickname,
   		icon_url: whoamiUserAvatar,
@@ -44,11 +43,10 @@ module.exports = {
   		url: whoamiUserAvatar,
   	},
   	fields: [
-  		/*{
-  			name: 'f',
-        value: "ouais ouais le lorem",
-  		},
   		{
+  			value: `${whoamiUserMention}`,
+  		},
+  		/*{
   			name: ' field 1.1 bien voyons monsieur l_arbitre',
   			value: "oui c'est quoi ça ",
         inline: true,
