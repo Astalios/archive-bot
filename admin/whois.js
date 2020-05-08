@@ -14,7 +14,7 @@ module.exports = {
     // user related roles
     let rolesColor;
     let rolesList;
-    let rolesCount = 0;
+    let rolesCount;
 
     // dynamic whoami
 
@@ -26,7 +26,8 @@ module.exports = {
       msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
     }
 
-    rolesColor = `${msg.guild.member(whoamiUserMention).displayHexColor}`
+    rolesList = `${msg.guild.member(whoamiUserMention).roles.map(usrRoles => `${usrRoles}`).join('')}`;
+    rolesColor = `${msg.guild.member(whoamiUserMention).displayHexColor}`;
     whoamiUserJoinedDate = `${msg.guild.member(whoamiUserMention).joinedAt.toDateString()}`;
     whoamiUserName = `${whoamiUserMention.username}`;
     whoamiUserCreationDate = `${whoamiUserMention.createdAt.toDateString()}`;
@@ -59,11 +60,11 @@ module.exports = {
   			value: 'lorem ipsum ooc',
         inline: true,
   		},*/
-  	/*	{
+  		{
   			name: 'ROLE LIST - ' + rolesCount,
         value: rolesList,
         inline: false,
-  		},*/
+  		},
   		{
   			name: 'Created',
   			value: whoamiUserCreationDate,
