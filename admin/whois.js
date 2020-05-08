@@ -18,9 +18,9 @@ module.exports = {
     // dynamic whoami
 
     if (msg.mentions.users.size == 1){
-      whoamiUserMention = '<@'+msg.mentions.users.first()+'>';
+      whoamiUserMention = msg.mentions.users.first();
     } else if (!msg.mentions.users.size) {
-      whoamiUserMention = '<@'+msg.author+'>';
+      whoamiUserMention = msg.author;
     } else {
       msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
     }
