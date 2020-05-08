@@ -44,7 +44,8 @@ client.on('message', msg => {
       //kick ban
       case "kick":
       case "ban":
-        args.forEach((element, i, array) => {
+      msg.channel.send("This command is actually been reworked in a future update.");
+      /*  args.forEach((element, i, array) => {
           if (element.startsWith('-')) {
               const action = element.split('')[1];
               switch (action) {
@@ -70,26 +71,11 @@ client.on('message', msg => {
                       break;
                 }
           }
-        });
+        });*/
         break;
       //rename
       case "rename":
-        let phraseRename = "";
-        let isMention = 1;
-        if (!msg.mentions.users.size){
-          isMention = 0;
-        }
-        for (isMention; isMention < args.length; isMention++)
-          phraseRename += args[isMention] + " ";
-        if (msg.mentions.users.size == 1 ){
-          msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
-          msg.channel.send("Done.");
-        } else if (!msg.mentions.users.size) {
-          msg.guild.member(msg.author).setNickname(phraseRename);
-          msg.channel.send("Done.");
-        } else {
-          msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
-        }
+        client.adminCommands.get('rename').execute(msg, args);
         break;
       //ty kouine for this command
       case "cbt":
