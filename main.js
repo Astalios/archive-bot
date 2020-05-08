@@ -39,7 +39,7 @@ client.on('message', msg => {
     //ping
     switch (cmd) {
       case "ping":
-        msg.channel.send("Pong! `" + (Date.now() - msg.createdTimestamp) + " ms`");
+        client.adminCommands.get('ping').execute(msg, args);
         break;
       //kick ban
       case "kick":
