@@ -26,14 +26,14 @@ module.exports = {
       msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
     }
 
-    rolesList = whoamiUserMention.roles.map(usrRoles => usrRoles).join('');
-    rolesColor = `${msg.guild.member(whoamiUserMention).displayHexColor}`;
-    whoamiUserJoinedDate = `${msg.guild.member(whoamiUserMention).joinedAt.toDateString()}`;
-    whoamiUserName = `${whoamiUserMention.username}`;
-    whoamiUserCreationDate = `${whoamiUserMention.createdAt.toDateString()}`;
-    whoamiUserAvatar = `${whoamiUserMention.displayAvatarURL({ format: "png", dynamic: true })}`;
-    whoamiUserTag = `${whoamiUserMention.tag}`;
-    whoamiUserID = `${whoamiUserMention.id}`;
+    rolesList = '42'; //whoamiUserMention.roles.map(usrRoles => usrRoles).join('');
+    rolesColor = msg.guild.member(whoamiUserMention).displayHexColor;
+    whoamiUserJoinedDate = msg.guild.member(whoamiUserMention).joinedAt.toDateString();
+    whoamiUserName = whoamiUserMention.username;
+    whoamiUserCreationDate = whoamiUserMention.createdAt.toDateString();
+    whoamiUserAvatar = whoamiUserMention.displayAvatarURL({ format: "png", dynamic: true });
+    whoamiUserTag = whoamiUserMention.tag;
+    whoamiUserID = whoamiUserMention.id;
 
     const exampleEmbed = {
   	color: rolesColor,
