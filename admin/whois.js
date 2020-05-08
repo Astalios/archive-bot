@@ -26,6 +26,7 @@ module.exports = {
       msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
     }
 
+    rolesColor = `${msg.guild.member(whoamiUserMention).displayHexColor}`
     whoamiUserJoinedDate = `${msg.guild.member(whoamiUserMention).joinedAt.toDateString()}`;
     whoamiUserName = `${whoamiUserMention.username}`;
     whoamiUserCreationDate = `${whoamiUserMention.createdAt.toDateString()}`;
@@ -34,7 +35,7 @@ module.exports = {
     whoamiUserID = `${whoamiUserMention.id}`;
 
     const exampleEmbed = {
-  	color: 'RANDOM',
+  	color: rolesColor,
   	author: {
   		name: "USER : " + whoamiUserName,
   		icon_url: whoamiUserAvatar,
