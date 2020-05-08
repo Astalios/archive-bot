@@ -44,7 +44,7 @@ client.on('message', msg => {
       //kick ban
       case "kick":
       case "ban":
-      msg.channel.send("This command is actually been reworked in a future update.");
+        msg.channel.send("This command is actually been reworked in a future update.");
         break;
       //rename
       case "rename":
@@ -54,7 +54,7 @@ client.on('message', msg => {
           isMention = 1;
         }
         for (isMention; isMention < cmd.length; isMention++)
-          phraseRename += msg[isMention] + " ";
+          phraseRename += cmd[isMention] + " ";
         if (msg.mentions.users.size == 1 ){
           msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
           msg.channel.send("Done.");
