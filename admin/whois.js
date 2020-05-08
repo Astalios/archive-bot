@@ -2,23 +2,50 @@ module.exports = {
   name: "whois",
   description: "This little thing show a message about who is the mentionned person",
   execute(msg, args){
-    msg.channel.send("test embed template \n");
+
+    // user related data
+    let whoamiUserMention;
+    let whoamiUserTag;
+    let whoamiUserID;
+    let whoamiUserAvatar;
+    let whoamiUserCreationDate;
+    let whoamiUserJoinedDate;
+    // user related roles
+    let rolesColor;
+    let rolesList;
+    let rolesCount = 0;
+
+    // dynamic whoami
+
+    if (msg.mentions.users.size == 1){
+      whoamiUserMention = '<@'+msg.mentions.users.first()+'>';
+    } else if (!msg.mentions.users.size) {
+      whoamiUserMention = '<@'+msg.author+'>';
+    } else {
+      msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
+    }
+
+    whoamiUserJoinedDate = msg.guild.member(whoamiUserMention).joinedTimestamp;
+    whoamiUserCreationDate = whoamiUserMention.createdTimestamp ;
+    whoamiUserAvatar = whoamiUserMention.displayAvatarURL({ format: "png", dynamic: true });
+    whoamiUserTag = whoamiUserMention.tag;
+    whoamiUserID = whoamiUserMention.id;
+
     const exampleEmbed = {
   	color: 'RANDOM',
-  	title: 'source bot',
-  	url: 'https://github.com/astalios/archive-bot',
+  	title: whoamiUserMention,
   	author: {
-  		name: 'astalios',
-  		icon_url: 'https://imgur.com/E5Jsbrz',
-  		url: 'https://github.com/astalios/',
+  		name: "USER :" + whoamiUserTag,
+  		icon_url: whoamiUserAvatar,
+  		url: '',
   	},
   	description: 'La Description',
   	thumbnail: {
-  		url: 'https://imgur.com/qiInt18',
+  		url: whoamiUserAvatar,
   	},
   	fields: [
-  		{
-  			name: 'field 1',
+  		/*{
+  			name: 'f',
         value: "ouais ouais le lorem",
   		},
   		{
@@ -30,46 +57,35 @@ module.exports = {
   			name: 'field 2',
   			value: 'lorem ipsum ooc',
         inline: true,
-  		},
-  		{
-  			name: 'field 2.2',
-        value: 'ouais ouais',
+  		},*/
+  	/*	{
+  			name: 'ROLE LIST - ' + rolesCount,
+        value: rolesList,
         inline: false,
-  		},
+  		},*/
   		{
-  			name: 'Inline field 1',
-  			value: 'valeur 1',
+  			name: 'Created',
+  			value: whoamiUserCreationDate,
   			inline: true,
   		},
   		{
-  			name: 'Inline field 2',
-  			value: 'valeur 2',
+  			name: 'Joined',
+  			value: whoamiUserJoinedDate,
   			inline: true,
   		},
   		{
-  			name: 'Inline field 3',
-  			value: 'valeur 3',
+  			name: 'USER ID',
+  			value: whoamiUserID,
   			inline: true,
   		},
   	],
-  	image: {
-  		url: `${msg.author.displayAvatarURL({ format: "png", dynamic: true })}`,
-  	},
   	footer: {
-  		text: 'texte footer',
-  		icon_url: 'https://i.imgur.com/wSTFkRM.png',
+  		text: 'whoami - archive-bot',
+  		icon_url: 'https://github.com/astalios/archive-bot',
       timestamp: new Date(),
   	},
     timestamp: new Date(),
   };
   msg.channel.send({ embed: exampleEmbed });
-
-    if (msg.mentions.users.size == 1){
-      msg.channel.send(`\nHis username: ${msg.mentions.users.first().username}\nHis ID: ${msg.mentions.users.first().id}`);
-    } else if (!msg.mentions.users.size) {
-      msg.channel.send(`\nYour username: ${msg.author.username}\nYour ID: ${msg.author.id}`);
-    } else {
-      msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
-    }
   },
 };
