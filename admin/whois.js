@@ -44,8 +44,8 @@ module.exports = {
   	},
   	fields: [
   		{
-        name: `${whoamiUserMention}`,
-        //value: `${whoamiUserMention}`,
+        name: ``,
+        value: `${whoamiUserMention}`,
   		},
   		/*{
   			name: ' field 1.1 bien voyons monsieur l_arbitre',
