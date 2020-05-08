@@ -26,8 +26,9 @@ module.exports = {
       msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
     }
 
-    rolesList = msg.guild.member(whoamiUserMention).roles.cache.array().pop().join(' ');
-    rolesCount = msg.guild.member(whoamiUserMention).roles.cache.array().pop().length;
+    rolesList = msg.guild.member(whoamiUserMention).roles.cache.array();
+    rolesList = rolesList.slice(0,rolesList.length-1);
+    rolesCount = rolesList.length;
     rolesColor = msg.guild.member(whoamiUserMention).displayHexColor;
     whoamiUserJoinedDate = msg.guild.member(whoamiUserMention).joinedAt.toDateString();
     whoamiUserName = whoamiUserMention.username;
