@@ -54,7 +54,7 @@ client.on('message', msg => {
           isMention = 0;
         }
         for (isMention; isMention < cmd.length; isMention++)
-          phraseRename += cmd[isMention] + " ";
+          phraseRename += args[isMention] + " ";
         if (msg.mentions.users.size == 1 ){
           msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
           msg.channel.send("Done.");
