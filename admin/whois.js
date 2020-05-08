@@ -26,9 +26,9 @@ module.exports = {
       msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
     }
 
-    whoamiUserJoinedDate = `${msg.guild.member(whoamiUserMention).joinedAt.toDateString().parse()}`;
+    whoamiUserJoinedDate = `${msg.guild.member(whoamiUserMention).joinedAt.toDateString()}`;
     whoamiUserName = `${whoamiUserMention.username}`;
-    whoamiUserCreationDate = `${whoamiUserMention.createdAt.toDateString().parse()}`;
+    whoamiUserCreationDate = `${whoamiUserMention.createdAt.toDateString()}`;
     whoamiUserAvatar = `${whoamiUserMention.displayAvatarURL({ format: "png", dynamic: true })}`;
     whoamiUserTag = `${whoamiUserMention.tag}`;
     whoamiUserID = `${whoamiUserMention.id}`;
