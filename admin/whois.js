@@ -26,7 +26,7 @@ module.exports = {
     }
 
 //    whoamiUserJoinedDate = msg.guild.member(whoamiUserMention).joinedTimestamp;
-    whoamiUserCreationDate = `${whoamiUserMention.createdTimestamp}` ;
+    whoamiUserCreationDate = `${whoamiUserMention.createdAt}` ;
     whoamiUserAvatar = `${whoamiUserMention.displayAvatarURL({ format: "png", dynamic: true })}`;
     whoamiUserTag = `${whoamiUserMention.tag}`;
     whoamiUserID = `${whoamiUserMention.id}`;
