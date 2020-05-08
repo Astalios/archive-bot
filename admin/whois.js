@@ -25,7 +25,7 @@ module.exports = {
       msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
     }
 
-    whoamiUserJoinedDate = msg.guild.member(whoamiUserMention).joinedTimestamp;
+//    whoamiUserJoinedDate = msg.guild.member(whoamiUserMention).joinedTimestamp;
     whoamiUserCreationDate = whoamiUserMention.createdTimestamp ;
     whoamiUserAvatar = whoamiUserMention.displayAvatarURL({ format: "png", dynamic: true });
     whoamiUserTag = whoamiUserMention.tag;
@@ -70,7 +70,7 @@ module.exports = {
   		},
   		{
   			name: 'Joined',
-  			value: whoamiUserJoinedDate,
+  //			value: whoamiUserJoinedDate,
   			inline: true,
   		},
   		{
