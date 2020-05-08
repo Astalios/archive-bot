@@ -7,7 +7,7 @@ module.exports = {
     if (!msg.mentions.users.size){
       isMention = 1;
     }
-    for (isMention; isMention < cmd.length; isMention++)
+    for (isMention; isMention < args.length; isMention++)
       phraseRename += cmd[isMention] + " ";
     if (msg.mentions.users.size == 1 ){
       msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);

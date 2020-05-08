@@ -57,7 +57,7 @@ module.exports = {
       {
         name: 'USER ID',
         value: whoamiUserID,
-        inline: true,
+        inline: false,
       },
       {
         name: 'Created',
