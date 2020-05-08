@@ -39,15 +39,16 @@ module.exports = {
   		name: "USER : " + whoamiUserNickname,
   		icon_url: whoamiUserAvatar,
   	},
+    description: `${whoamiUserMention}`,
   	thumbnail: {
   		url: whoamiUserAvatar,
   	},
   	fields: [
-  		{
+  	/*	{
         name: `\u200b`,
-        value: `${whoamiUserMention}`,
+        value:
   		},
-  		/*{
+  		{
   			name: ' field 1.1 bien voyons monsieur l_arbitre',
   			value: "oui c'est quoi ça ",
         inline: true,
