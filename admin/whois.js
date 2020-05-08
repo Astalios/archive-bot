@@ -35,7 +35,7 @@ module.exports = {
 
     const exampleEmbed = {
   	color: 'RANDOM',
-  	title: `<@${whoamiUserMention}>`,
+  	title: `<@${whoamiUserID}>`,
   	author: {
   		name: "USER : " + whoamiUserNickname,
   		icon_url: whoamiUserAvatar,
