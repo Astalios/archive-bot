@@ -27,9 +27,9 @@ module.exports = {
     }
 
     rolesList = msg.guild.member(whoamiUserMention).roles.cache.array();
-    rolesList = rolesList.slice(0,rolesList.length-1);
+    rolesList = rolesList.slice(0, rolesList.length-1);
     rolesCount = rolesList.length;
-    rolesList = rolesList.join('');
+    rolesList = rolesList.join(' ');
     rolesColor = msg.guild.member(whoamiUserMention).displayHexColor;
     whoamiUserJoinedDate = msg.guild.member(whoamiUserMention).joinedAt.toDateString();
     whoamiUserName = whoamiUserMention.username;
@@ -49,40 +49,26 @@ module.exports = {
   		url: whoamiUserAvatar,
   	},
   	fields: [
-  	/*	{
-        name: `\u200b`,
-        value:
-  		},
-  		{
-  			name: ' field 1.1 bien voyons monsieur l_arbitre',
-  			value: "oui c'est quoi ça ",
-        inline: true,
-  		},
-      {
-  			name: 'field 2',
-  			value: 'lorem ipsum ooc',
-        inline: true,
-  		},*/
   		{
   			name: 'ROLE LIST - ' + rolesCount,
         value: rolesList,
         inline: false,
   		},
-  		{
-  			name: 'Created',
-  			value: whoamiUserCreationDate,
-  			inline: true,
-  		},
-  		{
-  			name: 'Joined',
-  			value: whoamiUserJoinedDate,
-  			inline: true,
-  		},
-  		{
-  			name: 'USER ID',
-  			value: whoamiUserID,
-  			inline: true,
-  		},
+      {
+        name: 'USER ID',
+        value: whoamiUserID,
+        inline: true,
+      },
+      {
+        name: 'Created',
+        value: whoamiUserCreationDate,
+        inline: true,
+      },
+      {
+        name: 'Joined',
+        value: whoamiUserJoinedDate,
+        inline: true,
+      },
   	],
   	footer: {
       text: 'whoami - archive-bot - ' + whoamiUserTag,
