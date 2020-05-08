@@ -6,10 +6,10 @@ module.exports = {
     let avatarURL = "";
     if(!msg.mentions.users.size){
       avatarTitle = `Here is your avatar:`;
-      avatarURL = `${msg.author.displayAvatarURL({ format: "png", dynamic: true })}`;
+      avatarURL = msg.author.displayAvatarURL({ format: "png", dynamic: true });
     } else {
     	avatarTitle = `${msg.mentions.users.first().username} avatar`;
-    	avatarURL = `${msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true })}`;
+    	avatarURL = msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true });
     }
     const avatarEmbed = {
       color: 0x0099ff,
