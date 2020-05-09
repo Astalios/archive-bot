@@ -1,7 +1,7 @@
 module.exports = {
   name: 'serverinfo',
   description: 'Affiche les informations relatives au serveur.',
-  execute(msg,args) {
+  execute(msg, args) {
 
     // server Vars for embedding - 15 vars
     let serverName;
@@ -25,6 +25,7 @@ module.exports = {
     if (msg.guild.avalible) {
       const server = msg.guild;
       console.log(server);
+      console.log(msg.guild);
       serverName = server.name;
   //    serverIcon = server.iconURL({ format: "png", dynamic: true, size: 256 });
       console.log(serverIcon);
