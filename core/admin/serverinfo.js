@@ -26,7 +26,7 @@ module.exports = {
       const server = msg.guild;
 
       serverName = server.name;
-      serverIcon = server.iconURL();
+      serverIcon = server.iconURL({ format: "png", dynamic: true });
       serverOwner = server.owner;
       serverOwnerID = server.ownerID;
       serverCreationDate = server.createdAt.toDateString();
