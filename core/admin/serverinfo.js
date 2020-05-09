@@ -7,6 +7,7 @@ module.exports = {
     let serverName;
     let serverIcon;
     let serverOwner;
+    let serverOwnerID;
     let serverCreationDate;
     let serverMembersCount;
     let serverRolesCount;
