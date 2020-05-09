@@ -59,10 +59,6 @@ client.on('message', msg => {
       case "rename":
       	client.adminCommands.get('rename').execute(msg, args);
         break;
-			// testembed
-			case 'testembed':
-				client.adminCommands.get('testembed').execute(msg, args);
-				break;
 			// serverinfo
 			case "serverinfo":
 			client.adminCommands.get('serverinfo').execute(msg, args);

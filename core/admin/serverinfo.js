@@ -46,7 +46,7 @@ module.exports = {
         } else if ((i < serverBoosterCount) && (i != 0)) {
           serverBoostProgression.push("=");
         } else {
-          serverBoostProgression.push("\u00A0");
+          serverBoostProgression.push("-");
         }
       }
       serverBoostProgression.push("]");
