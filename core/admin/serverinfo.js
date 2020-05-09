@@ -27,6 +27,7 @@ module.exports = {
 
       serverName = server.name;
       serverIcon = server.iconURL({ format: "png", dynamic: true });
+      console.log(serverIcon);
       serverOwner = server.owner;
       serverOwnerID = server.ownerID;
       serverCreationDate = server.createdAt.toDateString();
