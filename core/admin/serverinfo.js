@@ -22,7 +22,7 @@ module.exports = {
     let serverBoostProgression;
     let serverBoostTier;
 
-    if (msg.guild.avalible) {
+    if (!msg.guild.avalible) {
       const server = msg.guild;
       console.log(server);
       console.log(msg.guild);
