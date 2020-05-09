@@ -12,42 +12,51 @@ module.exports = {
     let serverMembersCount;
     let serverRolesCount;
     let serverID;
-    let serverCategories;
-    let serverVoiceChannels;
-    let serverWrittenChannels;
     let serverRegion;
-    let serverVerificationLevel;
-    let serverShard;
     let serverBoosterCount;
-    let serverBoostProgression;
+    let serverBoostProgression = [];
     let serverBoostTier;
 
     if (!msg.guild.avalible) {
       const server = msg.guild;
-      console.log(server);
-      console.log(msg.guild);
+
       serverName = server.name;
-  //    serverIcon = server.iconURL({ format: "png", dynamic: true, size: 256 });
-      console.log(serverIcon);
+      serverIcon = server.iconURL({ format: "png", dynamic: true });
       serverOwner = server.owner;
       serverOwnerID = server.ownerID;
       serverCreationDate = server.createdAt.toDateString();
       serverMembersCount = server.memberCount;
       serverID = server.id;
       serverRegion = server.region;
-      serverShard = server.shard;
       serverVerificationLevel = server.verificationLevel;
-      serverWrittenChannels = server.channels.cache.array().length;
       serverBoosterCount = server.premiumSubscriptionCount;
       serverBoostTier = server.premiumTier;
 
+      serverBoostProgression.push("[");
+      for (let i = 0; i < 31, i++)  {
+
+        if ( i == 31){
+          serverBoostProgression.push("3️⃣");
+        } else if (i == 16) {
+          serverBoostProgression.push("2️⃣");
+        } else if (i == 2) {
+          serverBoostProgression.push("1️⃣");
+        } else if ((i == serverBoosterCount) && (i != 0)) {
+          serverBoostProgression.push(">");
+        } else if ((i < serverBoosterCount) && (i != 0)) {
+          serverBoostProgression.push("=");
+        } else {
+          serverBoostProgression.push("\u00A0");
+        }
+      }
+      serverBoostProgression.push("]");
     }
 
     const serverinfoEmbed = {
-      color: 'RANDOM',
+      color: '#31B404',
       author: {
         name: 'SERVER NAME : ' + `${serverName}`,
-  //      icon_url: `${serverIcon}`,
+        icon_url: `${serverIcon}`,
       },
       fields: [
         {
@@ -61,13 +70,13 @@ module.exports = {
           inline: true,
         },
         {
-          name: 'SERVER REGION',
-          value: `${serverRegion}`,
+          name: '\u200B',
+          value: '\u200B',
           inline: false,
         },
         {
-          name: 'SERVER SHARD',
-          value: `${serverShard}`,
+          name: 'SERVER REGION',
+          value: `${serverRegion}`,
           inline: true,
         },
         {
@@ -76,9 +85,14 @@ module.exports = {
           inline: true,
         },
         {
+          name: '\u200B',
+          value: '\u200B',
+          inline: false,
+        },
+        {
           name: 'SERVER TIER',
           value: `${serverBoostTier}`,
-          inline: false,
+          inline: true,
         },
         {
           name: 'SERVER BOOSTERS',
@@ -87,7 +101,7 @@ module.exports = {
         },
         {
           name: 'SERVER BOOST PROGRESSION',
-          value: `placeHolder`,
+          value: `${serverBoostProgression}`,
           inline: false,
         },
       ],
