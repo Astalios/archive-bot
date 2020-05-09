@@ -33,11 +33,11 @@ module.exports = {
       serverBoostTier = server.premiumTier;
 
       serverBoostProgression.push("[");
-      for (let i = 0; i < 31; i++)  {
+      for (let i = 1; i < 31; i++)  {
 
-        if ( i == 31){
+        if ( i == 30){
           serverBoostProgression.push("3️⃣");
-        } else if (i == 16) {
+        } else if (i == 15) {
           serverBoostProgression.push("2️⃣");
         } else if (i == 2) {
           serverBoostProgression.push("1️⃣");
@@ -50,6 +50,7 @@ module.exports = {
         }
       }
       serverBoostProgression.push("]");
+      serverBoostProgression = serverBoostProgression.join('');
     }
 
     const serverinfoEmbed = {
@@ -70,11 +71,6 @@ module.exports = {
           inline: true,
         },
         {
-          name: '\u200B',
-          value: '\u200B',
-          inline: false,
-        },
-        {
           name: 'SERVER REGION',
           value: `${serverRegion}`,
           inline: true,
@@ -82,11 +78,6 @@ module.exports = {
         {
           name: 'SERVER VERIFICATION LEVEL',
           value: `${serverVerificationLevel}`,
-          inline: true,
-        },
-        {
-          name: '\u200B',
-          value: '\u200B',
           inline: false,
         },
         {
