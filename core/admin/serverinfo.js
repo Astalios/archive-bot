@@ -24,7 +24,7 @@ module.exports = {
 
     if (msg.guild.avalible) {
       const server = msg.guild;
-
+      console.log(server);
       serverName = server.name;
   //    serverIcon = server.iconURL({ format: "png", dynamic: true, size: 256 });
       console.log(serverIcon);
