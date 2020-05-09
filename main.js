@@ -12,8 +12,6 @@ const adminFiles = fs.readdirSync('./core/admin').filter(file => file.endsWith('
 const funFiles = fs.readdirSync('./core/fun').filter(file => file.endsWith('.js'));
 const config = JSON.parse(fs.readFileSync('misc/config.json'));
 
-
-
 //preparing the admin commands
 for (const file of adminFiles) {
 	const admCmd = require(`./core/admin/${file}`);
@@ -41,28 +39,31 @@ client.on('guildCreate', guild => {
   })
 });
 
-
-
 client.on('message', msg => {
   if (msg.content.startsWith(config.prefix)) {
 
     const args = msg.content.substr(config.prefix.length,msg.content.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
-    //ping
-    switch (cmd) {
+
+		switch (cmd) {
+			// ping
       case "ping":
         client.adminCommands.get('ping').execute(msg, args);
         break;
-      //kick ban
+      // kick ban
       case "kick":
       case "ban":
         msg.channel.send("This command is actually been reworked in a future update.");
         break;
-      //rename
+      // rename
       case "rename":
       	client.adminCommands.get('rename').execute(msg, args);
         break;
-      //ty kouine for this command
+			// serverinfo
+			case "serverinfo":
+			client.adminCommands.get('serverinfo').execute(msg, args);
+				break;
+      // ty kouine for this command
       case "cbt":
 				client.funCommands.get('cbt').execute(msg, args);
         break;

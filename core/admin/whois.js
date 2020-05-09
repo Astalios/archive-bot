@@ -26,7 +26,7 @@ module.exports = {
       msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
     }
 
-    rolesList = msg.guild.member(whoamiUserMention).roles.cache.array();
+    rolesList = {msg.guild.member(whoamiUserMention).roles.cache.array();
     rolesList = rolesList.slice(0, rolesList.length-1);
     rolesCount = rolesList.length;
     rolesList = rolesList.join(' ');
@@ -38,45 +38,45 @@ module.exports = {
     whoamiUserTag = whoamiUserMention.tag;
     whoamiUserID = whoamiUserMention.id;
 
-    const exampleEmbed = {
-  	color: rolesColor,
+    const whoisEmbed = {
+  	color: `${rolesColor}`,
   	author: {
-  		name: "USER : " + whoamiUserName,
-  		icon_url: whoamiUserAvatar,
+  		name: "USER : " + `${whoamiUserName}`,
+  		icon_url: `${whoamiUserAvatar}`,
   	},
-    description: whoamiUserMention,
+    description: `${whoamiUserMention}`,
   	thumbnail: {
-  		url: whoamiUserAvatar,
+  		url: `${whoamiUserAvatar}`,
   	},
   	fields: [
   		{
-  			name: 'ROLE LIST - ' + rolesCount,
-        value: rolesList,
+  			name: 'ROLE LIST - ' + `${rolesCount}`,
+        value: `${rolesList}`,
         inline: false,
   		},
       {
         name: 'USER ID',
-        value: whoamiUserID,
+        value: `${whoamiUserID}`,
         inline: false,
       },
       {
         name: 'Created',
-        value: whoamiUserCreationDate,
+        value: `${whoamiUserCreationDate}`,
         inline: true,
       },
       {
         name: 'Joined',
-        value: whoamiUserJoinedDate,
+        value: `${whoamiUserJoinedDate}`,
         inline: true,
       },
   	],
   	footer: {
-      text: 'whoami - archive-bot - ' + whoamiUserTag,
+      text: 'whoami - archive-bot - ' + `${whoamiUserTag}`,
   		url: 'https://github.com/astalios/archive-bot',
       timestamp: new Date(),
   	},
     timestamp: new Date(),
   };
-  msg.channel.send({ embed: exampleEmbed });
+  msg.channel.send({ embed: whoisEmbed });
   },
 };
