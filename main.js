@@ -5,15 +5,24 @@ const Discord = require('discord.js');
 // setting up the client
 const client = new Discord.Client();
 client.adminCommands = new Discord.Collection();
+client.funCommands = new Discord.Collection();
 
-//setting up the commands
-const adminFiles = fs.readdirSync('./admin').filter(file => file.endsWith('.js'));
+//setting up the admin commands
+const adminFiles = fs.readdirSync('./core/admin').filter(file => file.endsWith('.js'));
+const funFiles = fs.readdirSync('./core/fun').filter(file => file.endsWith('.js'));
 const config = JSON.parse(fs.readFileSync('misc/config.json'));
+
 
 //preparing the admin commands
 for (const file of adminFiles) {
-	const admCmd = require(`./admin/${file}`);
+	const admCmd = require(`./core/admin/${file}`);
 	client.adminCommands.set(admCmd.name, admCmd);
+}
+
+//preparing the fun commands
+for(const file of funFiles) {
+	const funCmd = require(`./core/fun/${file}`);
+	client.funCommands.set(funCmd.name, funCmd);
 }
 
 client.once('ready', () => {
@@ -48,23 +57,7 @@ client.on('message', msg => {
         break;
       //rename
       case "rename":
-        let phraseRename = "";
-        let isMention = 1;
-        if (!msg.mentions.users.size){
-          isMention = 0;
-        }
-        for (isMention; isMention < args.length; isMention++) // args = mention val1 val2 val3 ... valN
-          phraseRename += args[isMention] + " ";
-        if (msg.mentions.users.size == 1 ){
-          msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
-          msg.channel.send("Done.");
-        } else if (!msg.mentions.users.size) {
-          msg.guild.member(msg.author).setNickname(phraseRename);
-          msg.channel.send("Done.");
-        } else {
-          msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
-        }
-      //  client.adminCommands.get('rename').execute(msg, args);
+      	client.adminCommands.get('rename').execute(msg, args);
         break;
       //ty kouine for this command
       case "cbt":

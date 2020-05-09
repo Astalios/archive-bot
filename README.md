@@ -14,16 +14,18 @@ Il me sert principalement à apprendre le javascript, le node, et les modules au
 
 UNE BASE DE DONNEES
 UNE DOCUMENTATION
+DYNAMIQUE DES COMMANDES
+SCRIPT INSTALL DEPENDANCES / BDD / MAJ AUTO
 Il faut que je rajoute plus de fonctionnalités :
 
 ### modération + utilities
 
 - warns + multiwarns + db
+- kick, multikick, reason
+- ban, multiban, reason
 - mute qq'un / channel
-- whois
-- serverinfo
-- avatar
-- créer/supprimer role
+- serverinfo -> **soonTM**
+- créer/supprimer role -> **soonTM**
 - créer/supprimer channel
 - créer/supprimer category
 - déplacer qq'un dans un  v.channel
@@ -32,7 +34,7 @@ Il faut que je rajoute plus de fonctionnalités :
 - antispam
 - filtre liens (http / https / sans rien / filtrage contournement (genre les espaces ou autre), système de REGEX)
 - captcha
-- attribuer un role
+- attribuer un role -> **soonTM**
 - gestion des erreurs
 
 ### fun:
@@ -44,7 +46,7 @@ Il faut que je rajoute plus de fonctionnalités :
 
 ### done:
 
-- kick, multikick, reason
-- ban, multiban, reason
-- système de rename -- reworking, je veux inclure les espaces dans le rename dans la limite des 32 char
+- whois
+- système de rename -- reworking, limite des 32 char à implémenter.
 - créations channels de logs du bot + catégorie liée
+- avatar

@@ -44,7 +44,7 @@ module.exports = {
   		name: "USER : " + whoamiUserName,
   		icon_url: whoamiUserAvatar,
   	},
-    description: `${whoamiUserMention}`,
+    description: whoamiUserMention,
   	thumbnail: {
   		url: whoamiUserAvatar,
   	},
