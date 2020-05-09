@@ -5,7 +5,7 @@ module.exports = {
 
     let nitrobar = "[==========1️⃣==========2️⃣==>       3️⃣]" ;
     const testembed = {
-      fields: [
+      fields:
     		{
     			name: 'NITRO TIER - BOOSTERS' + `LOREM IPSUM`,
           value: `${nitrobar}`,
