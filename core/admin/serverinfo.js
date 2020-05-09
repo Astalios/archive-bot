@@ -27,6 +27,7 @@ module.exports = {
       serverName = server.name;
       serverIcon = server.iconURL();
       serverOwner = server.owner;
+      serverOwnerID = server.ownerID;
       serverCreationDate = server.createdAt.toDateString();
       serverMembersCount = server.memberCount;
       serverID = server.id;
@@ -48,7 +49,7 @@ module.exports = {
       fields: [
         {
           name: 'OWNER',
-          value: `${serverOwner} - ID ${serverOwner.id}`,
+          value: `${serverOwner} - ID ${serverOwnerID}`,
           inline: true,
         },
         {
