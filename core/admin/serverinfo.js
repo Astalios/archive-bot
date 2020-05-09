@@ -33,7 +33,7 @@ module.exports = {
       serverBoostTier = server.premiumTier;
 
       serverBoostProgression.push("[");
-      for (let i = 0; i < 31, i++)  {
+      for (let i = 0; i < 31; i++)  {
 
         if ( i == 31){
           serverBoostProgression.push("3️⃣");
