@@ -3,7 +3,7 @@ module.exports = {
   description: 'description',
   execute(msg,args) {
 
-    let nitrobar = "[=1️⃣============2️⃣==>\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A03️⃣]" ;
+    let nitrobar = "[=1️⃣============2️⃣==>-----------3️⃣]" ;
     const testembed = {
       fields:
     		{
