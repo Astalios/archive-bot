@@ -4,15 +4,23 @@ const Discord = require('discord.js');
 
 // setting up the client
 const client = new Discord.Client();
-client.adminCommands = new Discord.Collection();
-client.funCommands = new Discord.Collection();
+client.coreCommands = new Discord.Collection();
+//client.adminCommands = new Discord.Collection();
+//client.funCommands = new Discord.Collection();
 
 //setting up the admin commands
-const adminFiles = fs.readdirSync('./core/admin').filter(file => file.endsWith('.js'));
-const funFiles = fs.readdirSync('./core/fun').filter(file => file.endsWith('.js'));
+//const adminFiles = fs.readdirSync('./core/admin').filter(file => file.endsWith('.js'));
+//const funFiles = fs.readdirSync('./core/fun').filter(file => file.endsWith('.js'));
+const coreFiles = fs.readdirSync('./core/*').filter(file => file.endsWith('.js'));
 const config = JSON.parse(fs.readFileSync('misc/config.json'));
 
+//preparing the core commands
+for (const file of coreFiles) {
+	const coreCmd = require(`./core/*/${file}`);
+	client.coreCommands.set(coreCmd.name, coreCmd);
+}
 
+/*
 //preparing the admin commands
 for (const file of adminFiles) {
 	const admCmd = require(`./core/admin/${file}`);
@@ -24,7 +32,7 @@ for(const file of funFiles) {
 	const funCmd = require(`./core/fun/${file}`);
 	client.funCommands.set(funCmd.name, funCmd);
 }
-
+*/
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -40,6 +48,23 @@ client.on('guildCreate', guild => {
   })
 });
 
+client.on('message', msg => {
+  if (msg.content.startsWith(config.prefix)) {
+
+    const args = msg.content.substr(config.prefix.length,msg.content.length).split(/ +/);
+    const cmd = args.shift().toLowerCase();
+
+		switch (cmd) {
+			case "ping":
+        client.coreCommands.get('ping').execute(msg, args);
+        break;
+  	default:
+        msg.channel.send("Syntax Error, use is : `a!<command> [args] [...]`");
+    }
+}
+});
+
+/*
 client.on('message', msg => {
   if (msg.content.startsWith(config.prefix)) {
 
@@ -76,5 +101,5 @@ client.on('message', msg => {
     }
 }
 });
-
+*/
 client.login(config.token);

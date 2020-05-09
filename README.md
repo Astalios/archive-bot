@@ -12,11 +12,11 @@ Il me sert principalement à apprendre le javascript, le node, et les modules au
 
 ### todo:
 
-UNE BASE DE DONNEES
-UNE DOCUMENTATION
-DYNAMIQUE DES COMMANDES
-SCRIPT INSTALL DEPENDANCES / BDD / MAJ AUTO
-Il faut que je rajoute plus de fonctionnalités :
+**UNE BASE DE DONNEES** \n
+**UNE DOCUMENTATION** \n
+**DYNAMIQUE DES COMMANDES** \n
+**SCRIPT INSTALL DEPENDANCES / BDD / MAJ AUTO** \n
+__Il faut que je rajoute plus de fonctionnalités__ :
 
 ### modération + utilities
 
