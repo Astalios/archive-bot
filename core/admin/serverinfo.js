@@ -86,7 +86,7 @@ module.exports = {
           inline: true,
         },
         {
-          name: 'SERVER BOOSTERS',
+          name: 'SERVER BOOSTS',
           value: `${serverBoosterCount}`,
           inline: true,
         },
@@ -97,7 +97,7 @@ module.exports = {
         },
       ],
       footer: {
-          value: `whois - archive-bot - ${msg.author.tag}`,
+          text: `serverinfo - archive-bot - ${msg.author.tag}`,
           url: 'https://github.com/astalios/archive-bot',
       },
       timestamp: new Date(),
