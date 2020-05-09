@@ -1,7 +1,29 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+// Required modules
 const fs = require('fs');
+const Discord = require('discord.js');
+
+// setting up the client
+const client = new Discord.Client();
+client.adminCommands = new Discord.Collection();
+client.funCommands = new Discord.Collection();
+
+//setting up the admin commands
+const adminFiles = fs.readdirSync('./core/admin').filter(file => file.endsWith('.js'));
+const funFiles = fs.readdirSync('./core/fun').filter(file => file.endsWith('.js'));
 const config = JSON.parse(fs.readFileSync('misc/config.json'));
+
+
+//preparing the admin commands
+for (const file of adminFiles) {
+	const admCmd = require(`./core/admin/${file}`);
+	client.adminCommands.set(admCmd.name, admCmd);
+}
+
+//preparing the fun commands
+for(const file of funFiles) {
+	const funCmd = require(`./core/fun/${file}`);
+	client.funCommands.set(funCmd.name, funCmd);
+}
 
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -26,86 +48,29 @@ client.on('message', msg => {
     //ping
     switch (cmd) {
       case "ping":
-        msg.channel.send("Pong! `" + (Date.now() - msg.createdTimestamp) + " ms`");
+        client.adminCommands.get('ping').execute(msg, args);
         break;
-      // le kick ban
+      //kick ban
       case "kick":
       case "ban":
-        args.forEach((element, i, array) => {
-          if (element.startsWith('-')) {
-              const action = element.split('')[1];
-              switch (action) {
-                  case 'r':
-                      let str = '';
-                      let j = i + 1;
-                      while ((array.length >  j ) && !array[j].startsWith('-')) {
-                          str += array[j] + " ";
-                          j++;
-                      }
-                      msg.mentions.users.forEach(usr => {
-                        if (cmd == "ban"){
-                          msg.guild.member(usr).ban({ reason: str });
-                          msg.channel.send("Done.");
-                        } else {
-                          msg.guild.member(usr).kick({ reason: str });
-                          msg.channel.send("Done.");
-                        }
-                      });
-                      break;
-                  default:
-                      msg.channel.send("error.");
-                      break;
-                }
-          }
-        });
+        msg.channel.send("This command is actually been reworked in a future update.");
         break;
-      // le rename
+      //rename
       case "rename":
-        let phraseRename = "";
-        let isMention = 1;
-        if (!msg.mentions.users.size){
-          isMention = 0;
-        }
-        for (isMention; isMention < args.length; isMention++)
-          phraseRename += args[isMention] + " ";
-        if (msg.mentions.users.size == 1 ){
-          msg.guild.member(msg.mentions.users.first()).setNickname(phraseRename);
-          msg.channel.send("Done.");
-        } else if (!msg.mentions.users.size) {
-          msg.guild.member(msg.author).setNickname(phraseRename);
-          msg.channel.send("Done.");
-        } else {
-          msg.channel.send("Syntax Error, use this : `a!rename [@user] <newName>`");
-        }
+      	client.adminCommands.get('rename').execute(msg, args);
         break;
-      // dedicace kouine pour cette commande
+      //ty kouine for this command
       case "cbt":
-        const msgCBT = "cock and ball torture for you ";
-        if(msg.mentions.users.size != 1){
-          msg.channel.send("Syntax Error, use this : `a!cbt [@user]`");
-        } else {
-          msg.channel.send(msgCBT + '<@'+msg.mentions.users.first()+'>' );
-        }
+				client.funCommands.get('cbt').execute(msg, args);
         break;
       // ABOUT ME, ABOUT YOU
-      case "about":
-        if (msg.mentions.users.size == 1){
-          msg.channel.send(`His username: ${msg.mentions.users.first().username}\nHis ID: ${msg.mentions.users.first().id}`);
-        } else if (!msg.mentions.users.size) {
-          msg.channel.send(`Your username: ${msg.author.username}\nYour ID: ${msg.author.id}`);
-        } else {
-          msg.channel.send("Syntax Error, use this : `a!about <@user]>`");
-        }
+      case "whois":
+        client.adminCommands.get('whois').execute(msg, args);
         break;
       // avatar
       case "avatar":
-      if(!msg.mentions.users.size){
-        	msg.channel.send(`Here is your avatar: <${msg.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
-      } else {
-        msg.channel.send(`${msg.mentions.users.first().username} avatar: <${msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true })}>`);
-      }
-      break;
-
+        client.adminCommands.get('avatar').execute(msg, args);
+        break;
       default:
         msg.channel.send("Syntax Error, use is : `a!<command> [args] [...]`");
     }

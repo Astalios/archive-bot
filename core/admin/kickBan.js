@@ -1,7 +1,11 @@
-cmd.forEach((element, i, array) => {
-  if (element.startsWith('-')) {
-      const action = element.split('')[1];
-      switch (action) {
+module.exports = {
+  name: 'kick',
+  description: 'Kick the member, should specify the reason why. Actually the function I should rework.',
+  execute(msg,args) {
+    cmd.forEach((element, i, array) => {
+      if (element.startsWith('-')) {
+        const action = element.split('')[1];
+        switch (action) {
           case 'r':
               let str = '';
               let j = i + 1;
@@ -20,8 +24,10 @@ cmd.forEach((element, i, array) => {
               });
               break;
           default:
-              msg.channel.send("error.");
-              break;
+            msg.channel.send("error.");
+            break;
         }
-  }
-});
+      }
+    });
+  },
+};
