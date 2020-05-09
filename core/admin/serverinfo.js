@@ -26,7 +26,7 @@ module.exports = {
       const server = msg.guild;
 
       serverName = server.name;
-      serverIcon = server.iconURL({ format: "png", dynamic: true, size: 256 });
+  //    serverIcon = server.iconURL({ format: "png", dynamic: true, size: 256 });
       console.log(serverIcon);
       serverOwner = server.owner;
       serverOwnerID = server.ownerID;
@@ -46,7 +46,7 @@ module.exports = {
       color: 'RANDOM',
       author: {
         name: 'SERVER NAME : ' + `${serverName}`,
-        icon_url: `${serverIcon}`,
+  //      icon_url: `${serverIcon}`,
       },
       fields: [
         {
