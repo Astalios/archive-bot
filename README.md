@@ -12,11 +12,11 @@ Il me sert principalement à apprendre le javascript, le node, et les modules au
 
 ### todo:
 
-**UNE BASE DE DONNEES** \n
-**UNE DOCUMENTATION** \n
-**DYNAMIQUE DES COMMANDES** \n
-**SCRIPT INSTALL DEPENDANCES / BDD / MAJ AUTO** \n
-__Il faut que je rajoute plus de fonctionnalités__ :
+- **UNE BASE DE DONNEES**
+- **UNE DOCUMENTATION**
+- **DYNAMIQUE DES COMMANDES**
+- **SCRIPT INSTALL DEPENDANCES / BDD / MAJ AUTO**
+- __Il faut que je rajoute plus de fonctionnalités__ :
 
 ### modération + utilities
 
@@ -24,7 +24,6 @@ __Il faut que je rajoute plus de fonctionnalités__ :
 - kick, multikick, reason
 - ban, multiban, reason
 - mute qq'un / channel
-- serverinfo -> **soonTM**
 - créer/supprimer role -> **soonTM**
 - créer/supprimer channel
 - créer/supprimer category
@@ -46,6 +45,7 @@ __Il faut que je rajoute plus de fonctionnalités__ :
 
 ### done:
 
+- serverinfo
 - whois
 - système de rename -- reworking, limite des 32 char à implémenter.
 - créations channels de logs du bot + catégorie liée
