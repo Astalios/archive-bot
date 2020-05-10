@@ -3,7 +3,10 @@ module.exports = {
   description: 'Affiche les informations relatives au serveur.',
   execute(msg, args) {
 
-    // server Vars for embedding - 15 vars
+    // needing to call discord.js once again
+    const Discord = require('discord.js');
+
+    // server Vars for embedding - 12 vars
     let serverName;
     let serverIcon;
     let serverOwner;
