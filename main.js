@@ -29,12 +29,16 @@ client.once('ready', () => {
 });
 
 client.on('guildCreate', guild => {
-  guild.channels.create("archive-bot-category", {type: "category"}).then( cat => {
-    guild.channels.create("logs-ban", {parent: cat, topic: "banList, by who, reason",
+  guild.channels.create("archive-bot-logs", {type: "category"}).then( cat => {
+    guild.channels.create("logs-kick-ban", {parent: cat, topic: "banList, by who, reason, also logs kicks",
       reason: "needed a new channel",position: 1});
     guild.channels.create("logs-warn", {parent: cat, topic: "warnList, by who, reason",
       reason: "needed a new channel", position: 2});
-    //guild.channels.create("logs-warn", {parent: cat, topic: "warnList, by who, reason",
+    guild.channels.create("logs-new-user", {parent: cat, topic: "Tracks user entry",
+    	reason: "needed a new channel", position: 3});
+		guild.channels.create("logs-deleted-messages", {parent: cat, topic: "Tracks deleted messages",
+	   	reason: "needed a new channel", position: 4});
+		//guild.channels.create("channelName", {parent: cat, topic: "setTopic Here",
     //reason: "needed a new channel"});
   })
 });

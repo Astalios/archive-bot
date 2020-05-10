@@ -11,7 +11,7 @@ Ce bot est a usage privé et personnel pour le moment, parce que le code est mau
 Il me sert principalement à apprendre le javascript, le node, et les modules autour de ce magnifique langage.
 
 ### todo:
-
+- **Traduire tout en anglais pour couvrir un max d'utilisateurs**
 - **UNE BASE DE DONNEES**
 - **UNE DOCUMENTATION**
 - **DYNAMIQUE DES COMMANDES**
