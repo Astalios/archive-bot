@@ -56,13 +56,14 @@ module.exports = {
     const serverinfoEmbed = {
       color: '#31B404',
       author: {
-        name: 'SERVER NAME : ' + `${serverName}`,
+        name: 'SERVER ID : ' + `${serverID}`,
         icon_url: `${serverIcon}`,
       },
+      title: 'SERVER NAME : ' + `${serverName}`,
       fields: [
         {
           name: 'OWNER',
-          value: `${serverOwner} - ID ${serverOwnerID}`,
+          value: `${serverOwner} \n ownerID : ${serverOwnerID}`,
           inline: true,
         },
         {
@@ -75,11 +76,20 @@ module.exports = {
           value: `${serverRegion}`,
           inline: true,
         },
+      ],
+      fields: [
         {
           name: 'SERVER VERIFICATION LEVEL',
           value: `${serverVerificationLevel}`,
-          inline: false,
+          inline: true,
         },
+        {
+          name: 'SERVER CREATION DATE',
+          value: `${serverCreationDate}`,
+          inline: true,
+        }
+      ],
+      fields: [
         {
           name: 'SERVER TIER',
           value: `${serverBoostTier}`,
