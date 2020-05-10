@@ -106,7 +106,7 @@ module.exports = {
           inline: false,
         },
       )
-      .setFooter(`serverinfo - archive-bot - ${msg.author.tag}`, 'https://github.com/astalios/archive-bot')
+      .setFooter(`serverinfo - archive-bot - ${msg.author.tag}`)
       .setTimestamp();
     msg.channel.send(serverinfoEmbed);
   },

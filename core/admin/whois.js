@@ -72,7 +72,6 @@ module.exports = {
   	],
   	footer: {
       text: 'whois - archive-bot - ' + `${whoamiUserTag}`,
-  		url: 'https://github.com/astalios/archive-bot',
   	},
     timestamp: new Date(),
   };
