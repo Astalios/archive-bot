@@ -88,6 +88,11 @@ module.exports = {
           value: `${serverCreationDate}`,
           inline: true,
         },
+        {
+          name: '\u200B',
+          value: '\u200B';
+          inline: true,
+        }
       )
       .addFields(
         {
