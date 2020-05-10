@@ -87,7 +87,7 @@ module.exports = {
           name: 'SERVER CREATION DATE',
           value: `${serverCreationDate}`,
           inline: true,
-        }
+        },
       ],
       fields: [
         {
