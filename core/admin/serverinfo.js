@@ -53,14 +53,11 @@ module.exports = {
       serverBoostProgression = serverBoostProgression.join('');
     }
 
-    const serverinfoEmbed = {
-      color: '#31B404',
-      author: {
-        name: 'SERVER ID : ' + `${serverID}`,
-        icon_url: `${serverIcon}`,
-      },
-      title: 'SERVER NAME : ' + `${serverName}`,
-      fields: [
+    const serverinfoEmbed = new Discord.MessageEmbed()
+      .setColor('#31B404')
+      .setAuthor('SERVER ID : ' + `${serverID}`, `${serverIcon}`)
+      .setTitle( 'SERVER NAME : ' + `${serverName}`)
+      .addFields(
         {
           name: 'OWNER',
           value: `${serverOwner} \n ownerID : ${serverOwnerID}`,
@@ -76,8 +73,8 @@ module.exports = {
           value: `${serverRegion}`,
           inline: true,
         },
-      ],
-      fields: [
+      )
+    .addFields(
         {
           name: 'SERVER VERIFICATION LEVEL',
           value: `${serverVerificationLevel}`,
@@ -88,8 +85,8 @@ module.exports = {
           value: `${serverCreationDate}`,
           inline: true,
         },
-      ],
-      fields: [
+      )
+      .addFields(
         {
           name: 'SERVER TIER',
           value: `${serverBoostTier}`,
@@ -105,13 +102,9 @@ module.exports = {
           value: `${serverBoostProgression}`,
           inline: false,
         },
-      ],
-      footer: {
-          text: `serverinfo - archive-bot - ${msg.author.tag}`,
-          url: 'https://github.com/astalios/archive-bot',
-      },
-      timestamp: new Date(),
-    };
-    msg.channel.send({ embed: serverinfoEmbed });
+      )
+      .setFooter(`serverinfo - archive-bot - ${msg.author.tag}`, 'https://github.com/astalios/archive-bot')
+      .setTimestamp();
+    msg.channel.send(serverinfoEmbed);
   },
 };
