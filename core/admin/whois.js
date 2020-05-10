@@ -38,45 +38,43 @@ module.exports = {
     whoamiUserTag = whoamiUserMention.tag;
     whoamiUserID = whoamiUserMention.id;
 
-    const exampleEmbed = {
-  	color: rolesColor,
+    const whoisEmbed = {
+  	color: `${rolesColor}`,
   	author: {
-  		name: "USER : " + whoamiUserName,
-  		icon_url: whoamiUserAvatar,
+  		name: "USER : " + `${whoamiUserName}`,
+  		icon_url: `${whoamiUserAvatar}`,
   	},
-    description: whoamiUserMention,
+    description: `${whoamiUserMention}`,
   	thumbnail: {
-  		url: whoamiUserAvatar,
+  		url: `${whoamiUserAvatar}`,
   	},
   	fields: [
   		{
-  			name: 'ROLE LIST - ' + rolesCount,
-        value: rolesList,
+  			name: 'ROLE LIST - ' + `${rolesCount}`,
+        value: `${rolesList}`,
         inline: false,
   		},
       {
         name: 'USER ID',
-        value: whoamiUserID,
+        value: `${whoamiUserID}`,
         inline: false,
       },
       {
         name: 'Created',
-        value: whoamiUserCreationDate,
+        value: `${whoamiUserCreationDate}`,
         inline: true,
       },
       {
         name: 'Joined',
-        value: whoamiUserJoinedDate,
+        value: `${whoamiUserJoinedDate}`,
         inline: true,
       },
   	],
   	footer: {
-      text: 'whoami - archive-bot - ' + whoamiUserTag,
-  		url: 'https://github.com/astalios/archive-bot',
-      timestamp: new Date(),
+      text: 'whois - archive-bot - ' + `${whoamiUserTag}`,
   	},
     timestamp: new Date(),
   };
-  msg.channel.send({ embed: exampleEmbed });
+  msg.channel.send({ embed: whoisEmbed });
   },
 };
