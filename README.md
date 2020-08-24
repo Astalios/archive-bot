@@ -42,6 +42,7 @@ Il me sert principalement à apprendre le javascript, le node, et les modules au
 - Minijeux
 - créer  une image
 - musique ?
+- lacoste TN ou quoient ?
 
 ### done:
 
