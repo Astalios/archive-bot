@@ -4,10 +4,11 @@ const Discord = require('discord.js');
 
 // setting up the client
 const client = new Discord.Client();
-client.adminCommands = new Discord.Collection();
-client.funCommands = new Discord.Collection();
+//client.adminCommands = new Discord.Collection();
+//client.funCommands = new Discord.Collection();
+client.commands = new Discord.Collection();
 
-//setting up the admin commands
+//setting up the admin, fun and conf commands
 const adminFiles = fs.readdirSync('./core/admin').filter(file => file.endsWith('.js'));
 const funFiles = fs.readdirSync('./core/fun').filter(file => file.endsWith('.js'));
 const config = JSON.parse(fs.readFileSync('misc/config.json'));
@@ -15,19 +16,22 @@ const config = JSON.parse(fs.readFileSync('misc/config.json'));
 //preparing the admin commands
 for (const file of adminFiles) {
 	const admCmd = require(`./core/admin/${file}`);
-	client.adminCommands.set(admCmd.name, admCmd);
+	//client.adminCommands.set(admCmd.name, admCmd);
+	client.commands.set(admCmd.name, admCmd);
 }
 
 //preparing the fun commands
 for(const file of funFiles) {
 	const funCmd = require(`./core/fun/${file}`);
-	client.funCommands.set(funCmd.name, funCmd);
+	//client.funCommands.set(funCmd.name, funCmd);
+	client.commands.set(funCmd.name, funCmd);
 }
 
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-
+// TODO: Faire une vérification de si ces channels existent déjà. Si oui alors ne pas les créer et faire en sorte que le bot écrive dedans chaque action,
+// plus tard, penser a faire en sorte de configurer le bot en fonction des envies des admins, donc ça nécessite de gérer les permissions, ce qui devrait arriver assez tôt
 client.on('guildCreate', guild => {
   guild.channels.create("archive-bot-logs", {type: "category"}).then( cat => {
     guild.channels.create("logs-kick-ban", {parent: cat, topic: "banList, by who, reason, also logs kicks",
@@ -47,8 +51,22 @@ client.on('message', msg => {
   if (msg.content.startsWith(config.prefix)) {
 
     const args = msg.content.substr(config.prefix.length,msg.content.length).split(/ +/);
-    const cmd = args.shift().toLowerCase();
+    const cmdName = args.shift().toLowerCase();
 
+		// replacing the actual switch case method to add a dynamic command management
+
+		if (!client.commands.has(cmdName)) return;
+
+		const cmd = client.commands.get(cmdName);
+
+		try {
+			client.commands.get(cmd.execute(msg, args);
+		} catch (error){
+			console.error(error);
+			message.reply("Il y'a eu une difficulté à executer la commande, erreur : " + error);
+		}
+
+/*
 		switch (cmd) {
 			// ping
       case "ping":
@@ -63,16 +81,13 @@ client.on('message', msg => {
       case "rename":
       	client.adminCommands.get('rename').execute(msg, args);
         break;
-			// serverinfo
-			case "serverinfo":
-			client.adminCommands.get('serverinfo').execute(msg, args);
+      // serverinfo
+      case "serverinfo":
+				client.adminCommands.get('serverinfo').execute(msg, args);
 				break;
-      // ty kouine for this command
-      case "cbt":
-				client.funCommands.get('cbt').execute(msg, args);
-        break;
       // ABOUT ME, ABOUT YOU
-      case "whois":
+    	case "whois":
+      case "info":
         client.adminCommands.get('whois').execute(msg, args);
         break;
       // avatar
@@ -82,6 +97,7 @@ client.on('message', msg => {
       default:
         msg.channel.send("Syntax Error, use is : `a!<command> [args] [...]`");
     }
+		*/
 }
 });
 

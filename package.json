@@ -1,0 +1,29 @@
+{
+  "name": "archive-bot",
+  "version": "1.0.0",
+  "description": "Discord Bot, mainly to learn js and node, but if i finish the project, it would be a very complete bot with deep configuration",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Astalios/archive-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "discord.js",
+    "beta",
+    "open-source"
+  ],
+  "author": "astalios",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Astalios/archive-bot/issues"
+  },
+  "homepage": "https://github.com/Astalios/archive-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}

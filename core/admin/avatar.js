@@ -9,7 +9,7 @@ module.exports = {
       avatarURL = msg.author.displayAvatarURL({ format: "png", dynamic: true });
     } else {
     	avatarTitle = `${msg.mentions.users.first().username} avatar`;
-    	avatarURL = msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true });
+    	avatarURL = msg.mentions.users.first().displayAvatarURL({ format: "png", dynamic: true, size: 1024 });
     }
     const avatarEmbed = {
       color: 0x0099ff,

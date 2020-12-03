@@ -16,7 +16,7 @@ module.exports = {
     let rolesList;
     let rolesCount;
 
-    // dynamic whoami
+    // dynamic whois - if no one is pinged, then display self info.
 
     if (msg.mentions.users.size == 1){
       whoamiUserMention = msg.mentions.users.first();

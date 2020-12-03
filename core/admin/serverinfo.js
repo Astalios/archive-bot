@@ -1,6 +1,6 @@
 module.exports = {
   name: 'serverinfo',
-  description: 'Affiche les informations relatives au serveur.',
+  description: 'Display informations about the server.',
   execute(msg, args) {
 
     // needing to call discord.js once again
