@@ -21,12 +21,12 @@ Il me sert principalement à apprendre le javascript, le node, et les modules au
 ### modération + utilities
 
 - warns + multiwarns + db
-- kick, multikick, reason
-- ban, multiban, reason
+- ~~kick~~, multikick, ~~reason~~
+- ~~ban~~, multiban, ~~reason~~
 - mute qq'un / channel
 - créer/supprimer role -> **soonTM**
-- créer/supprimer channel
-- créer/supprimer category
+- ~~créer~~/supprimer channel
+- ~~créer~~/supprimer category
 - déplacer qq'un dans un  v.channel
 - déplacer un channel sous une category // optionnel
 - logs
