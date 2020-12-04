@@ -10,7 +10,7 @@ client.commands = new Discord.Collection();
 
 //setting up the admin, fun and conf commands
 const adminFiles = fs.readdirSync('./core/admin').filter(file => file.endsWith('.js'));
-//const funFiles = fs.readdirSync('./core/fun').filter(file => file.endsWith('.js'));
+const funFiles = fs.readdirSync('./core/fun').filter(file => file.endsWith('.js'));
 const musicFiles = fs.readdirSync('./core/music').filter(file => file.endsWith('.js'));
 const config = JSON.parse(fs.readFileSync('misc/config.json'));
 
@@ -28,14 +28,14 @@ for(const file of musicFiles){
 	client.commands.set(musicCmd.name, musicCmd);
 }
 
-/*
+
 //preparing the fun commands
 for(const file of funFiles) {
 	const funCmd = require(`./core/fun/${file}`);
 	//client.funCommands.set(funCmd.name, funCmd);
 	client.commands.set(funCmd.name, funCmd);
 }
-*/
+
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
