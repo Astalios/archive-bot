@@ -24,7 +24,7 @@ for (const file of adminFiles) {
 
 //preparing the music commands
 for(const file of musicFiles){
-	const musicCmd = require(`./core/admin/${file}`);
+	const musicCmd = require(`./core/music/${file}`);
 	client.commands.set(musicCmd.name, musicCmd);
 }
 
