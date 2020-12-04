@@ -14,6 +14,7 @@ module.exports = {
     let serverCreationDate;
     let serverMembersCount;
     let serverRolesCount;
+    let serverVerificationLevel;
     let serverID;
     let serverRegion;
     let serverBoosterCount;
