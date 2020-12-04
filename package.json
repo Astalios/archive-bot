@@ -1,6 +1,6 @@
 {
   "name": "archive-bot",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Discord Bot, mainly to learn js and node, but if i finish the project, it would be a very complete bot with deep configuration",
   "main": "main.js",
   "scripts": {
@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/Astalios/archive-bot#readme",
   "dependencies": {
-    "discord.js": "^12.5.1"
+    "@discordjs/opus": "^0.3.3",
+    "discord.js": "^12.5.1",
+    "ffmpeg-static": "^4.2.7"
   }
 }
