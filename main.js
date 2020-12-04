@@ -70,7 +70,7 @@ client.on('message', msg => {
 		client.commands.get(cmd.execute(msg, args));
 	} catch (error){
 		console.error(error);
-		message.reply("Il y'a eu une difficulté à executer la commande, erreur : " + error);
+		msg.reply("Il y'a eu une difficulté à executer la commande, erreur : " + error);
 	}
   }
 });
