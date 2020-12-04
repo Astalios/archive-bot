@@ -6,5 +6,6 @@ module.exports = {
     / Ajoutez IcI le code a executer quand la commande est appellée
     /
     */
+    msg.reply("commande en cours d'écriture !");
   },
 };

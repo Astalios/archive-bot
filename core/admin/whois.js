@@ -4,7 +4,7 @@ module.exports = {
   execute(msg, args){
 
     // user related data
-    let whoamiUserNickname;
+    // let whoamiUserNickname;
     let whoamiUserMention;
     let whoamiUserTag;
     let whoamiUserID;
