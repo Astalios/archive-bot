@@ -1,10 +1,10 @@
-module.exports = {
-  name: 'serverinfo',
-  description: 'Display informations about the server.',
-  execute(msg, args) {
+// needing to call discord.js once again
+const Discord = require('discord.js');
+  module.exports = {
+    name: 'serverinfo',
+    description: 'Display informations about the server.',
+    execute(msg, args) {
 
-    // needing to call discord.js once again
-    const Discord = require('discord.js');
 
     // server Vars for embedding - 12 vars
     let serverName;
